@@ -1,0 +1,36 @@
+﻿@model TagStatus.ViewModels.StudentViewModel;
+@{
+    ViewBag.Title = "StudentInfo";
+}
+<h2>
+    StudentInfo</h2>
+@using (Html.BeginForm("Results","Home"))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Enter Student Information!</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Student.StudentName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(Model => Model.Student.StudentName)
+           @Html.ValidationMessageFor(Model => Model.Student.StudentName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Student.Grade)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(Model => Model.Student.Grade, Grades.GradeSelectList)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Student.State)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(Model => Model.Student.State, StatesDictionary.StateSelectList)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+ 

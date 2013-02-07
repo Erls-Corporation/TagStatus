@@ -1,0 +1,48 @@
+﻿@model TagStatus.Models.TagModel
+
+@{
+    ViewBag.Title = "Tag Status Application";
+}
+
+<h2>Tag Status Lookup</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)    
+    //style="background-color: #C0C0C0"
+    
+    <fieldset>
+        <legend></legend>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Name)
+        </div>
+
+      <div class="editor-field">
+            @Html.TextBoxFor(Model => Model.Name)
+           @Html.ValidationMessageFor(Model => Model.Name)
+        </div>
+        <p>
+            <input type="submit" value="Search" />
+        </p>
+     <div class="editor-label">
+            @Html.DisplayTextFor(m => m.Description)
+        </div>
+    </fieldset>
+}
+
+
+@*@using (Html.BeginForm())
+{
+    //style="background-color: #C0C0C0"
+        
+    <p>Enter tag number to get tag status:</p>
+    @Html.TextBoxFor(m => m.Name)
+           
+    <input type="submit" value="Search" />
+    
+    @Html.DisplayTextFor(m => m.Description)
+
+   
+}
+*@
+
